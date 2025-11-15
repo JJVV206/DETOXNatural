@@ -1,0 +1,237 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
+import imageBalance from "../images/imageSix.png";
+import imageFlower from "../images/imageSeven.png";
+import imageWomen from "../images/imageEight.png";
+---
+
+<MainLayout
+  title="Medicina Natural | DETOXNatural"
+  description="Programas de medicina natural y fitoterapia para armonizar cuerpo, mente y espíritu."
+  currentPath="/medicina-natural"
+>
+  <section class="bg-purple-50">
+    <div
+      class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:px-8 lg:py-24"
+    >
+      <div class="max-w-xl space-y-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-purple-500">
+          Medicina Natural
+        </p>
+        <h1 class="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
+          Medicina Natural: Armonía para tu Cuerpo y Mente
+        </h1>
+        <p class="text-base text-slate-600 sm:text-lg">
+          Descubre cómo la medicina natural en DETOXNatural ofrece soluciones
+          integrales para revitalizar tu salud, conectando la sabiduría ancestral
+          con la ciencia moderna para tu bienestar total.
+        </p>
+        <a
+          href="tel:+529611448411"
+          class="inline-flex rounded-full bg-lime-400 px-6 py-2.5 text-sm font-semibold text-slate-900 shadow-md shadow-lime-300/60 transition hover:bg-lime-300"
+        >
+          Agenda tu Consulta
+        </a>
+      </div>
+
+      <div>
+      <Image src={imageBalance} alt="Meditation" class="h-56 w-full rounded-3xl bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50 shadow-xl sm:h-72 lg:h-80">
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Nuestra Filosofía de Medicina Natural
+          </h2>
+          <p class="mt-4 text-base text-slate-600">
+            En DETOXNatural, la medicina natural es un camino hacia la sanación
+            profunda. No solo tratamos síntomas, sino que abordamos la causa raíz
+            de las dolencias, reconociendo al ser humano como un todo integrado.
+          </p>
+          <p class="mt-3 text-base text-slate-600">
+            Integramos fitoterapia, nutrición, acupuntura y técnicas de gestión
+            emocional para ayudarte a recuperar tu equilibrio físico, mental y
+            energético de manera sostenible.
+          </p>
+        </div>
+
+      <div>
+      <Image src={imageFlower} alt="Meditation" class="h-56 w-full rounded-3xl bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50 shadow-xl sm:h-72 lg:h-80">
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Fitoterapia y Sanación Holística de Órganos
+        </h2>
+        <p class="mt-4 text-base text-slate-600">
+          La fitoterapia utiliza el poder de las plantas medicinales para apoyar
+          la función de tus órganos y sistemas, promoviendo una recuperación
+          integral y duradera.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Hierbas Medicinales Poderosas
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Utilizamos extractos botánicos puros para apoyar la función hepática,
+            renal y digestiva, desintoxicando y fortaleciendo tu cuerpo de forma
+            natural.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Armonización de Sistemas
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Combinamos fitoterapia y acupuntura para equilibrar tu sistema nervioso
+            y circulatorio, mejorando tu bienestar general y energía.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Nutrición para la Recuperación
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Alineamos tu plan nutricional con la fitoterapia para acelerar la
+            regeneración celular y optimizar la función de los órganos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+      <Image src={imageWomen} alt="Meditation" class="h-56 w-full rounded-3xl shadow-xl sm:h-72 lg:h-80 object-cover">
+      </div>
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            La Profunda Conexión entre Salud Física y Emociones
+          </h2>
+          <p class="mt-4 text-base text-slate-600">
+            Reconocemos que las emociones no gestionadas pueden manifestarse como
+            dolencias físicas. Ofrecemos herramientas para el equilibrio emocional
+            que complementan tu proceso de sanación física.
+          </p>
+          <p class="mt-3 text-base text-slate-600">
+            A través de técnicas de respiración, meditación guiada y recomendaciones
+            de estilo de vida, te acompañamos a recuperar la calma interna y la
+            claridad mental que tanto necesitas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Tu Camino hacia el Bienestar: Proceso de Consulta
+        </h2>
+        <p class="mt-4 text-base text-slate-600">
+          Te guiamos paso a paso hacia la salud integral, desde la primera consulta
+          hasta el seguimiento de tu evolución.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wide text-purple-500">
+            Paso 1
+          </p>
+          <h3 class="mt-2 text-sm font-semibold text-slate-900">
+            Evaluación Integral
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Profunda revisión de tu historial, estilo de vida y síntomas para
+            entender todas las dimensiones de tu salud.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wide text-purple-500">
+            Paso 2
+          </p>
+          <h3 class="mt-2 text-sm font-semibold text-slate-900">
+            Diagnóstico Personalizado
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Utilizamos principios de la medicina natural y la MTC para identificar
+            desequilibrios y diseñar un plan específico.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wide text-purple-500">
+            Paso 3
+          </p>
+          <h3 class="mt-2 text-sm font-semibold text-slate-900">
+            Plan de Tratamiento Holístico
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Combinamos fitoterapia, nutrición, acupuntura y recomendaciones de
+            estilo de vida para una transformación profunda.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wide text-purple-500">
+            Paso 4
+          </p>
+          <h3 class="mt-2 text-sm font-semibold text-slate-900">
+            Educación y Empoderamiento
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Te damos las herramientas para que seas un participante activo en tu
+            proceso de sanación.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 text-sm shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wide text-purple-500">
+            Paso 5
+          </p>
+          <h3 class="mt-2 text-sm font-semibold text-slate-900">
+            Seguimiento Continuo
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Revisamos tus avances, ajustamos el plan y resolvemos dudas para
+            asegurar resultados duraderos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-purple-700 py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+        Inicia tu Transformación con Medicina Natural
+      </h2>
+      <p class="mt-4 text-base text-purple-100 sm:text-lg">
+        ¿Listo para explorar un camino de sanación que nutre tu cuerpo, mente y
+        espíritu? Agenda tu consulta hoy y da el primer paso hacia una vida más
+        plena y equilibrada.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <a
+          href="tel:+529611448411"
+          class="rounded-full bg-lime-400 px-8 py-3 text-sm font-semibold text-slate-900 shadow-md shadow-lime-300/60 transition hover:bg-lime-300"
+        >
+          Agenda tu Consulta Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

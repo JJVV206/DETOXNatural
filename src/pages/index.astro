@@ -1,16 +1,203 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
+import heroImg from "../images/imageOne.png";
+import medicineImg from "../images/imagetwo.png";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout
+  title="DETOXNatural | Salud Integral que Transforma Vidas"
+  description="En DETOXNatural fusionamos la medicina tradicional y la ciencia moderna para ofrecer programas holísticos de sanación."
+  currentPath="/"
+>
+  <section class="bg-slate-50">
+    <div
+      class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:px-8 lg:py-24"
+    >
+      <div class="max-w-xl space-y-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-purple-600">
+          Bienestar Integral
+        </p>
+        <h1 class="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          Salud Integral que Transforma Vidas
+        </h1>
+        <p class="text-base text-slate-600 sm:text-lg">
+          En DETOXNatural fusionamos la sabiduría ancestral de la Medicina Tradicional China con
+          avances científicos modernos para ayudarte a recuperar el equilibrio de tu cuerpo, mente y
+          espíritu.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="tel:+529611448411"
+            class="rounded-full bg-lime-400 px-6 py-2.5 text-sm font-semibold text-slate-900 shadow-md shadow-lime-300/60 transition hover:bg-lime-300"
+          >
+            Agenda una Consulta
+          </a>
+          <a
+            href="#pilares"
+            class="rounded-full border border-purple-200/70 px-6 py-2.5 text-sm font-semibold text-purple-700 hover:bg-purple-50"
+          >
+            Conoce nuestros programas
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <Image src={heroImg} alt="Meditation" class="flex h-full w-full items-center justify-center px-6 text-center" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Nuestra Filosofía
+        </h2>
+        <p class="mt-4 text-base text-slate-600 sm:text-lg">
+          Creemos en el poder innato del cuerpo para sanar. Nuestro enfoque holístico se basa en
+          tratar la raíz de las dolencias, integrando nutrición, acupuntura, medicina natural y
+          gestión emocional para recuperar tu bienestar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilares" class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Nuestros Cinco Pilares de Sanación
+        </h2>
+        <p class="mt-4 text-base text-slate-600">
+          Un enfoque integral para transformar tu salud física, mental y emocional.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl bg-slate-50 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">
+            Acupuntura y Terapias Energéticas
+          </h3>
+          <p class="mt-3 text-sm text-slate-600">
+            Restauramos el flujo de energía vital para aliviar dolor, reducir estrés y promover una
+            sensación profunda de equilibrio.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-slate-50 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">
+            Nutrición Consciente y Cetogénica
+          </h3>
+          <p class="mt-3 text-sm text-slate-600">
+            Planes de alimentación personalizados que optimizan tu metabolismo, energía y salud
+            digestiva, respetando tus necesidades únicas.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-slate-50 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">
+            Medicina Natural y Fitoterapia
+          </h3>
+          <p class="mt-3 text-sm text-slate-600">
+            Uso de extractos de plantas y remedios naturales para fortalecer tu sistema inmune y
+            apoyar la sanación profunda.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-slate-50 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">
+            Gestión Emocional desde la MTC
+          </h3>
+          <p class="mt-3 text-sm text-slate-600">
+            Estrategias para equilibrar emociones, reducir la ansiedad y mejorar tu bienestar
+            mental a través de la Medicina Tradicional China.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-slate-50 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">
+            Programas Especializados en Obesidad
+          </h3>
+          <p class="mt-3 text-sm text-slate-600">
+            Tratamientos integrales para la pérdida de peso sostenible, combinando nutrición,
+            movimiento y acompañamiento emocional.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-slate-50 p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">
+            Bienestar Integral
+          </h3>
+          <p class="mt-3 text-sm text-slate-600">
+            Un enfoque que integra todos los aspectos de tu vida para que vivas con más energía,
+            claridad y propósito.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Condiciones que Tratamos
+          </h2>
+          <p class="mt-4 text-base text-slate-600">
+            Nuestros programas holísticos están diseñados para abordar diversas condiciones desde
+            una mirada integral, ayudándote a recuperar tu salud y vitalidad.
+          </p>
+          <ul class="mt-6 space-y-2 text-sm text-slate-700">
+            <li>• Sistema digestivo: indigestión, colon irritable, inflamación.</li>
+            <li>• Sistema nervioso: estrés, ansiedad, insomnio.</li>
+            <li>• Dolor crónico musculoesquelético.</li>
+            <li>• Sistema respiratorio: alergias, asma.</li>
+            <li>• Desequilibrios hormonales y de fertilidad.</li>
+          </ul>
+        </div>
+      <div>
+        <Image src={medicineImg} alt="Meditation" class="flex h-full w-full items-center justify-center px-6 text-center" />
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        Lo que dicen nuestros clientes
+      </h2>
+      <div class="mt-8 rounded-3xl bg-purple-50 px-6 py-8 text-left shadow-sm sm:px-10 sm:py-10">
+        <p class="text-base italic text-slate-800">
+          “DETOXNatural ha cambiado mi vida por completo. Gracias a sus terapias de acupuntura y al
+          plan nutricional personalizado, he recuperado mi energía y bienestar. ¡Me siento una
+          persona nueva!”
+        </p>
+        <p class="mt-6 text-sm font-semibold text-slate-900">María G.</p>
+        <p class="text-xs text-slate-500">Cliente de programas integrales DETOXNatural</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-purple-700 py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+        Transforma tu vida hoy
+      </h2>
+      <p class="mt-4 text-base text-purple-100 sm:text-lg">
+        Da el primer paso hacia una vida más saludable, plena y consciente. Nuestro equipo te
+        acompaña en cada etapa de tu proceso de transformación.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <a
+          href="tel:+529611448411"
+          class="rounded-full bg-lime-400 px-8 py-3 text-sm font-semibold text-slate-900 shadow-md shadow-lime-300/60 transition hover:bg-lime-300"
+        >
+          Agenda tu Consulta Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

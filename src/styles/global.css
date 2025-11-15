@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --dn-purple: #804184;
+  --dn-purple-light: #f5e9f7;
+  --dn-purple-soft: #e5c9ed;
+  --dn-purple-dark: #5f255f;
+}
+
+/* Map Tailwind purple utilities to DETOXNatural palette */
+.bg-purple-50 {
+  background-color: var(--dn-purple-light) !important;
+}
+
+.bg-purple-100 {
+  background-color: var(--dn-purple-soft) !important;
+}
+
+.bg-purple-700 {
+  background-color: var(--dn-purple) !important;
+}
+
+.bg-purple-800 {
+  background-color: var(--dn-purple-dark) !important;
+}
+
+.text-purple-100 {
+  color: color-mix(in srgb, var(--dn-purple) 15%, white) !important;
+}
+
+.text-purple-200 {
+  color: color-mix(in srgb, var(--dn-purple) 25%, white) !important;
+}
+
+.text-purple-500,
+.text-purple-600,
+.text-purple-700 {
+  color: var(--dn-purple) !important;
+}
+
+.border-purple-200 {
+  border-color: color-mix(in srgb, var(--dn-purple) 30%, white) !important;
+}
+
+.shadow-purple-300\/60 {
+  --tw-shadow-color: color-mix(in srgb, var(--dn-purple) 45%, white) !important;
+}
+
+.from-purple-700 {
+  --tw-gradient-from: var(--dn-purple) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: color-mix(in srgb, var(--dn-purple) 10%, transparent) 0 !important;
+}
+
+.via-purple-700 {
+  --tw-gradient-via-position: var(--tw-gradient-via-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via, var(--dn-purple)), var(--tw-gradient-to) !important;
+}
+
+.to-purple-600,
+.to-purple-500 {
+  --tw-gradient-to: color-mix(in srgb, var(--dn-purple) 85%, white) var(--tw-gradient-to-position) !important;
+}
+
+.ring-purple-100 {
+  --tw-ring-color: color-mix(in srgb, var(--dn-purple) 15%, white) !important;
+}

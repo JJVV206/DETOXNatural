@@ -1,0 +1,161 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Contacto | DETOXNatural"
+  description="Conéctate con DETOXNatural para agendar tu consulta o resolver tus dudas sobre nuestros programas."
+  currentPath="/contacto"
+>
+  <section class="bg-purple-700 text-white">
+    <div
+      class="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+    >
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-purple-200">
+        Contáctanos
+      </p>
+      <h1 class="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+        Conéctate con DETOXNatural
+      </h1>
+      <p class="mt-4 text-base text-purple-100 sm:text-lg">
+        Estamos aquí para ayudarte en tu camino hacia la salud integral.
+        Contáctanos para resolver tus dudas o agendar una cita.
+      </p>
+    </div>
+  </section>
+
+  <section class="-mt-10 bg-slate-50 pb-16 pt-2 sm:pb-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+        <div class="space-y-4">
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-900">
+              <span class="text-lg">📍</span>
+              Nuestra Ubicación
+            </h2>
+            <p class="mt-3 text-sm text-slate-700">
+              5a. Norte Ote. No 384, Local B, Colonia Teran
+            </p>
+            <p class="mt-1 text-sm text-slate-700">
+              Tuxtla Gutiérrez, Chiapas
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-900">
+              <span class="text-lg">⏰</span>
+              Horario de Atención
+            </h2>
+            <dl class="mt-3 grid grid-cols-2 gap-y-1 text-sm text-slate-700">
+              <dt>Lunes - Viernes</dt>
+              <dd class="text-right">9:00 AM - 6:00 PM</dd>
+              <dt>Sábado</dt>
+              <dd class="text-right">10:00 AM - 2:00 PM</dd>
+              <dt>Domingo</dt>
+              <dd class="text-right">Cerrado</dd>
+            </dl>
+            <p class="mt-2 text-sm text-purple-700">
+              Siempre listos para escucharte.
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-900">
+              <span class="text-lg">☎️</span>
+              Detalles de Contacto
+            </h2>
+            <ul class="mt-3 space-y-1 text-sm text-slate-700">
+              <li>Teléfono: 961 144 8411</li>
+              <li>Correo: detoxnatural@hotmail.com</li>
+            </ul>
+            <div class="mt-3 flex gap-3 text-sm text-slate-500">
+              <span>Instagram</span>
+              <span>Facebook</span>
+              <span>WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="agenda" class="space-y-4">
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <h2 class="text-sm font-semibold text-slate-900">Agenda tu Cita</h2>
+            <p class="mt-2 text-sm text-slate-600">
+              Reserva tu consulta de nutrición, acupuntura o medicina natural.
+              Nuestro equipo está listo para acompañarte.
+            </p>
+            <a
+              href="tel:+529611448411"
+              class="mt-4 inline-flex items-center justify-center rounded-full bg-lime-400 px-5 py-2 text-sm font-semibold text-slate-900 shadow-md shadow-lime-300/60 transition hover:bg-lime-300"
+            >
+              Programar Cita
+            </a>
+          </div>
+
+          <div
+            id="formulario-contacto"
+            class="rounded-2xl bg-white p-6 shadow-sm"
+          >
+            <h2 class="text-sm font-semibold text-slate-900">
+              Envíanos un Mensaje
+            </h2>
+            <form
+              class="mt-4 space-y-4"
+              action="mailto:detoxnatural@hotmail.com"
+              method="post"
+              enctype="text/plain"
+            >
+              <div>
+                <label
+                  for="nombre"
+                  class="block text-xs font-medium text-slate-700"
+                  >Nombre</label
+                >
+                <input
+                  id="nombre"
+                  name="nombre"
+                  type="text"
+                  placeholder="Tu nombre completo"
+                  class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-0 transition focus:border-purple-500 focus:ring-2 focus:ring-purple-100"
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-xs font-medium text-slate-700"
+                  >Correo Electrónico</label
+                >
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="tu@ejemplo.com"
+                  class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-0 transition focus:border-purple-500 focus:ring-2 focus:ring-purple-100"
+                />
+              </div>
+              <div>
+                <label
+                  for="mensaje"
+                  class="block text-xs font-medium text-slate-700"
+                  >Mensaje</label
+                >
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  placeholder="¿Cómo podemos ayudarte?"
+                  class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-0 transition focus:border-purple-500 focus:ring-2 focus:ring-purple-100"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full rounded-full bg-purple-700 px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-purple-300/60 transition hover:bg-purple-800"
+              >
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

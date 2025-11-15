@@ -1,0 +1,199 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
+import nutritionOne from "../images/imageThree.png";
+import nutritionTwo from "../images/imageFour.png";
+---
+
+<MainLayout
+  title="Nutrición | DETOXNatural"
+  description="Programas de nutrición integral para transformar tu energía, metabolismo y bienestar."
+  currentPath="/nutricion"
+>
+  <section class="bg-white">
+    <div
+      class="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+    >
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-purple-500">
+        Nutrición Integral
+      </p>
+      <h1 class="mt-3 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
+        Nutrición Integral para una Vida Plena
+      </h1>
+      <p class="mt-4 text-base text-slate-600 sm:text-lg">
+        En DETOXNatural entendemos que la nutrición es la base de tu bienestar.
+        Nuestros programas están diseñados para nutrir tu cuerpo y mente,
+        promoviendo una salud integral que transforma tu vida.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Nuestros Planes de Nutrición
+        </h2>
+        <p class="mt-4 text-base text-slate-600">
+          Elige el enfoque nutricional que mejor se adapta a tus objetivos
+          y estilo de vida.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="flex flex-col rounded-2xl bg-white shadow-sm">
+          <div>
+            <Image src={nutritionOne} alt="Meditation" class="flex h-40 items-center justify-center rounded-t-2xl object-cover" />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="text-base font-semibold text-slate-900">
+              Nutrición Consciente
+            </h3>
+            <p class="mt-3 text-sm text-slate-600">
+              Descubre cómo una alimentación consciente puede transformar tu relación
+              con la comida. Aprende a escuchar tu cuerpo, elegir alimentos nutritivos
+              y crear hábitos saludables a largo plazo.
+            </p>
+            <ul class="mt-4 space-y-1 text-sm text-slate-600">
+              <li>• Mejora la digestión y absorción de nutrientes.</li>
+              <li>• Aumento de energía y vitalidad.</li>
+              <li>• Reducción del estrés asociado a la comida.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="flex flex-col rounded-2xl bg-white shadow-sm">
+          <div>
+            <Image src={nutritionTwo} alt="Meditation" class="flex h-40 items-center justify-center rounded-t-2xl object-cover" />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="text-base font-semibold text-slate-900">
+              Nutrición Cetogénica
+            </h3>
+            <p class="mt-3 text-sm text-slate-600">
+              Experimenta los beneficios de una dieta baja en carbohidratos,
+              diseñada para impulsar la quema de grasa, mejorar tu enfoque mental
+              y estabilizar tus niveles de energía.
+            </p>
+            <ul class="mt-4 space-y-1 text-sm text-slate-600">
+              <li>• Pérdida de peso efectiva y sostenida.</li>
+              <li>• Mayor claridad mental y enfoque.</li>
+              <li>• Reducción de la inflamación corporal.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Beneficios de Nuestros Programas
+        </h2>
+        <p class="mt-4 text-base text-slate-600">
+          Resultados tangibles cuando nutres tu cuerpo de forma integral.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3 lg:grid-cols-4">
+        <div class="rounded-2xl bg-slate-50 p-5 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Pérdida de Peso Saludable
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Planes diseñados para una pérdida de peso efectiva y sostenible,
+            sin dietas extremas.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Aumento de Energía
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Siente más vitalidad durante todo el día con un plan que equilibra
+            tus macronutrientes.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Mejora Digestiva
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Abordamos inflamación, hinchazón y malestar digestivo desde la raíz,
+            mejorando tu confort diario.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Equilibrio Hormonal
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Estrategias nutricionales para apoyar el balance hormonal en todas
+            las etapas de la vida.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Control Metabólico
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Manejo de resistencia a la insulina, diabetes y otras condiciones
+            relacionadas con el metabolismo.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-5 text-sm shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">
+            Claridad Mental
+          </h3>
+          <p class="mt-2 text-slate-600">
+            Nutrición enfocada en mejorar tu concentración, memoria y estabilidad
+            emocional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        Testimonios que Inspiran
+      </h2>
+      <div
+        class="mt-8 rounded-3xl bg-purple-50 px-6 py-8 text-left shadow-sm sm:px-10 sm:py-10"
+      >
+        <p class="text-base italic text-slate-800">
+          “Gracias a DETOXNatural he logrado una relación más sana con la comida
+          y he perdido 10 kilos de forma sostenida. Mi energía y mi digestión
+          han mejorado notablemente. ¡Es un cambio de vida integral!”
+        </p>
+        <p class="mt-6 text-sm font-semibold text-slate-900">Sofía M.</p>
+        <p class="text-xs text-slate-500">
+          Cliente satisfecha de Nutrición Consciente
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        Empieza tu Transformación Nutricional Hoy
+      </h2>
+      <p class="mt-4 text-base text-slate-600 sm:text-lg">
+        Agenda una consulta con nuestros expertos y descubre el plan de nutrición
+        perfecto para ti. Tu camino hacia una vida más saludable comienza aquí.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <a
+          href="tel:+529611448411"
+          class="rounded-full bg-lime-400 px-8 py-3 text-sm font-semibold text-slate-900 shadow-md shadow-lime-300/60 transition hover:bg-lime-300"
+        >
+          Agenda tu Consulta
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
