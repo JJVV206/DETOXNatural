@@ -9,7 +9,29 @@ interface Props {
   currentPath?: string;
 }
 
-const { title, description, currentPath } = Astro.props;
+const { title, description, currentPath } = Astro.props as Props;
+
+const site = Astro.site;
+const path = currentPath ?? "/";
+const canonicalUrl = site ? new URL(path, site).toString() : undefined;
+const defaultDescription =
+  "DETOXNatural en Tuxtla Gutiérrez, Chiapas: programas de nutrición, acupuntura y medicina natural para tu salud integral.";
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  name: "DETOXNatural",
+  description: description || defaultDescription,
+  ...(canonicalUrl && { url: canonicalUrl }),
+  telephone: "+52 961 144 8411",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "5a. Norte Ote. No 384, Local B, Colonia Teran",
+    addressLocality: "Tuxtla Gutiérrez",
+    addressRegion: "Chiapas",
+    addressCountry: "MX"
+  }
+};
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -26,12 +48,31 @@ const navItems = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="DETOXNatural" />
+    <meta name="theme-color" content="#4C1D95" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:site_name" content="DETOXNatural" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:image" content={Logo.src} />
+    <meta property="og:image:alt" content="Logo de DETOXNatural" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={Logo.src} />
+    <script type="application/ld+json">
+      {JSON.stringify(schemaOrg)}
+    </script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
     <div class="flex min-h-screen flex-col">
-      <header class="border-b border-purple-100 bg-white/90 shadow-sm backdrop-blur">
+      <header class="sticky top-0 z-30 border-b border-purple-100 bg-white/90 shadow-sm backdrop-blur">
         <div
           class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
         >
