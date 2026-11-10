@@ -1,9 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
-import acupunctureImage from "../images/imageFive.png";
-import nutritionImage from "../images/imageThree.png";
-import naturalMedicineImage from "../images/imageSeven.png";
+import acupunctureImage from "../images/service-acupuntura-home.webp";
+import nutritionImage from "../images/service-nutricion-home.webp";
+import naturalMedicineImage from "../images/service-medicina-natural-home.webp";
 ---
 
 <MainLayout
@@ -70,7 +70,7 @@ import naturalMedicineImage from "../images/imageSeven.png";
 
       <div class="mt-9 grid gap-5 md:grid-cols-3">
         <a href="/acupuntura" class="group relative isolate flex min-h-[340px] flex-col justify-end overflow-hidden rounded-[1.75rem] bg-[#25130b] p-6 text-white shadow-lg shadow-[#352116]/10 transition hover:-translate-y-1 sm:p-7">
-          <Image src={acupunctureImage} alt="Tratamiento de acupuntura" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+          <Image src={acupunctureImage} alt="Aplicación de acupuntura en un espacio tranquilo" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
           <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#1b0b05]/95 via-[#1b0b05]/35 to-transparent"></div>
           <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#f3c68e]">Medicina Tradicional China</p>
           <h3 class="mt-2 text-3xl font-semibold">Acupuntura</h3>
@@ -79,7 +79,7 @@ import naturalMedicineImage from "../images/imageSeven.png";
         </a>
 
         <a href="/nutricion" class="group relative isolate flex min-h-[340px] flex-col justify-end overflow-hidden rounded-[1.75rem] bg-[#17261a] p-6 text-white shadow-lg shadow-[#352116]/10 transition hover:-translate-y-1 sm:p-7">
-          <Image src={nutritionImage} alt="Alimentos frescos y nutritivos" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+          <Image src={nutritionImage} alt="Comida equilibrada con ingredientes frescos y naturales" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
           <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#101c13]/95 via-[#101c13]/40 to-transparent"></div>
           <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#d8dca2]">Guía nutricional</p>
           <h3 class="mt-2 text-3xl font-semibold">Nutrición</h3>
@@ -88,7 +88,7 @@ import naturalMedicineImage from "../images/imageSeven.png";
         </a>
 
         <a href="/medicina-natural" class="group relative isolate flex min-h-[340px] flex-col justify-end overflow-hidden rounded-[1.75rem] bg-[#17261a] p-6 text-white shadow-lg shadow-[#352116]/10 transition hover:-translate-y-1 sm:p-7">
-          <Image src={naturalMedicineImage} alt="Plantas medicinales y fitoterapia" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+          <Image src={naturalMedicineImage} alt="Preparación herbal con gotero, plantas y flores medicinales" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
           <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#101c13]/95 via-[#101c13]/40 to-transparent"></div>
           <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#d8dca2]">Plantas y bienestar</p>
           <h3 class="mt-2 text-3xl font-semibold">Medicina natural</h3>
