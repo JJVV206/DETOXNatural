@@ -8,9 +8,10 @@ interface Props {
   description?: string;
   currentPath?: string;
   headerVariant?: "default" | "overlay";
+  headerTone?: "warm" | "forest";
 }
 
-const { title, description, currentPath, headerVariant = "default" } = Astro.props as Props;
+const { title, description, currentPath, headerVariant = "default", headerTone = "warm" } = Astro.props as Props;
 const isOverlayHeader = headerVariant === "overlay";
 
 const site = Astro.site;
@@ -74,6 +75,10 @@ const navItems = [
         background: linear-gradient(135deg, rgb(45 19 8 / 0.78), rgb(25 9 3 / 0.62), rgb(16 6 2 / 0.52));
       }
 
+      header[data-overlay-header="true"][data-tone="forest"][data-surface="dark"] {
+        background: linear-gradient(135deg, rgb(16 42 28 / 0.82), rgb(12 31 21 / 0.68), rgb(7 20 13 / 0.56));
+      }
+
       header[data-overlay-header="true"][data-surface="dark"] .overlay-brand,
       header[data-overlay-header="true"][data-surface="dark"] .overlay-nav {
         color: #fff;
@@ -111,34 +116,35 @@ const navItems = [
       <header
         data-overlay-header={isOverlayHeader ? "true" : undefined}
         data-surface={isOverlayHeader ? "dark" : undefined}
+        data-tone={isOverlayHeader ? headerTone : undefined}
         class:list={[
           "z-30",
           isOverlayHeader
-            ? "fixed left-1/2 top-3 w-[calc(100%-1.5rem)] max-w-[1280px] -translate-x-1/2 rounded-[2rem] border border-white/35 bg-gradient-to-br from-white/38 via-white/20 to-white/12 shadow-[0_14px_40px_rgba(28,10,3,0.28),inset_0_1px_0_rgba(255,255,255,0.38)] backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 sm:top-4 sm:w-[calc(100%-3rem)]"
-            : "sticky top-0 border-b border-purple-100 bg-white/90 shadow-sm backdrop-blur"
+            ? "fixed left-1/2 top-3 w-[calc(100%-1.5rem)] max-w-[1280px] -translate-x-1/2 rounded-[2rem] border border-white/25 bg-gradient-to-br from-[#193729]/85 via-[#10281d]/78 to-[#0b1e16]/72 shadow-[0_14px_40px_rgba(5,15,10,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 sm:top-4 sm:w-[calc(100%-3rem)]"
+            : "sticky top-3 mx-auto w-[calc(100%-1.5rem)] max-w-[1280px] rounded-[2rem] border border-white/25 bg-gradient-to-br from-[#193729]/90 via-[#10281d]/85 to-[#0b1e16]/80 shadow-[0_14px_40px_rgba(5,15,10,0.3),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-xl backdrop-saturate-150 sm:top-4 sm:w-[calc(100%-3rem)]"
         ]}
       >
         <div
           class:list={[
-            "mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:px-6 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 lg:px-8",
-            isOverlayHeader ? "max-w-[1440px]" : "max-w-6xl"
+            "mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:px-6 xl:grid xl:grid-cols-[1fr_auto_1fr] xl:gap-6 xl:px-8",
+            "max-w-[1280px]"
           ]}
         >
-          <a href="/" class="flex items-center gap-3 md:justify-self-start">
+          <a href="/" class="flex items-center gap-3 xl:justify-self-start">
             <div>
               <Image src={Logo} alt="Logo" class="flex h-12 w-12 items-center justify-center rounded-2xl shadow-md" />
             </div>
             <div class="leading-tight">
-              <p class:list={["overlay-brand text-sm font-semibold tracking-wide", isOverlayHeader ? "text-[#2b1309]" : "text-slate-900"]}>
+              <p class="overlay-brand text-sm font-semibold tracking-wide text-white">
                 DETOXNatural
               </p>
-              <p class:list={["overlay-subtitle text-xs", isOverlayHeader ? "text-[#4a220e]" : "text-slate-500"]}>
+              <p class="overlay-subtitle text-xs text-white/75">
                 Sanación integral y bienestar
               </p>
             </div>
           </a>
 
-          <nav class:list={["overlay-nav hidden items-center gap-6 text-sm font-medium md:flex md:justify-self-center", isOverlayHeader ? "text-[#3d1c0b]" : "text-slate-600"]}>
+          <nav class="overlay-nav hidden items-center gap-4 text-sm font-medium text-white/85 xl:flex xl:justify-self-center">
             {navItems.map((item) => {
               const active = currentPath === item.href;
               return (
@@ -146,8 +152,8 @@ const navItems = [
                   href={item.href}
                   class:list={[
                     "transition-colors",
-                    isOverlayHeader ? "hover:text-[#120704]" : "hover:text-purple-700",
-                    active ? (isOverlayHeader ? "text-[#120704]" : "text-purple-700") : ""
+                    "hover:text-white",
+                    active ? "text-white" : ""
                   ]}
                 >
                   {item.label}
@@ -156,7 +162,7 @@ const navItems = [
             })}
           </nav>
 
-          <div class="hidden md:block md:justify-self-end">
+          <div class="hidden xl:block xl:justify-self-end">
             <a
               href="tel:+529611448411"
               class:list={[
@@ -170,14 +176,11 @@ const navItems = [
             </a>
           </div>
 
-          <div class="md:hidden">
+          <div class="xl:hidden">
             <details class="relative">
               <summary
                 class:list={[
-                  "overlay-menu-trigger flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium shadow-sm",
-                  isOverlayHeader
-                    ? "border border-[#6b3518]/25 bg-white/35 text-[#2b1309] backdrop-blur"
-                    : "border border-slate-200 bg-white text-slate-700"
+                  "overlay-menu-trigger flex cursor-pointer items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white shadow-sm backdrop-blur"
                 ]}
               >
                 <span>Menú</span>
