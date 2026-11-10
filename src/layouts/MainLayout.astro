@@ -7,9 +7,11 @@ interface Props {
   title: string;
   description?: string;
   currentPath?: string;
+  headerVariant?: "default" | "overlay";
 }
 
-const { title, description, currentPath } = Astro.props as Props;
+const { title, description, currentPath, headerVariant = "default" } = Astro.props as Props;
+const isOverlayHeader = headerVariant === "overlay";
 
 const site = Astro.site;
 const path = currentPath ?? "/";
@@ -66,39 +68,86 @@ const navItems = [
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={Logo.src} />
+    <style is:global>
+      header[data-overlay-header="true"][data-surface="dark"] {
+        border-color: rgb(255 255 255 / 0.22);
+        background: linear-gradient(135deg, rgb(45 19 8 / 0.78), rgb(25 9 3 / 0.62), rgb(16 6 2 / 0.52));
+      }
+
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-brand,
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-nav {
+        color: #fff;
+      }
+
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-nav a {
+        color: rgb(255 255 255 / 0.86);
+      }
+
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-nav a:hover {
+        color: #fff;
+      }
+
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-subtitle {
+        color: rgb(255 255 255 / 0.78);
+      }
+
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-cta {
+        background-color: #e5a04f;
+        color: #241005;
+      }
+
+      header[data-overlay-header="true"][data-surface="dark"] .overlay-menu-trigger {
+        border-color: rgb(255 255 255 / 0.35);
+        background-color: rgb(255 255 255 / 0.12);
+        color: #fff;
+      }
+    </style>
     <script type="application/ld+json">
       {JSON.stringify(schemaOrg)}
     </script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
     <div class="flex min-h-screen flex-col">
-      <header class="sticky top-0 z-30 border-b border-purple-100 bg-white/90 shadow-sm backdrop-blur">
+      <header
+        data-overlay-header={isOverlayHeader ? "true" : undefined}
+        data-surface={isOverlayHeader ? "dark" : undefined}
+        class:list={[
+          "z-30",
+          isOverlayHeader
+            ? "fixed left-1/2 top-3 w-[calc(100%-1.5rem)] max-w-[1280px] -translate-x-1/2 rounded-[2rem] border border-white/35 bg-gradient-to-br from-white/38 via-white/20 to-white/12 shadow-[0_14px_40px_rgba(28,10,3,0.28),inset_0_1px_0_rgba(255,255,255,0.38)] backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 sm:top-4 sm:w-[calc(100%-3rem)]"
+            : "sticky top-0 border-b border-purple-100 bg-white/90 shadow-sm backdrop-blur"
+        ]}
+      >
         <div
-          class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
+          class:list={[
+            "mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:px-6 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 lg:px-8",
+            isOverlayHeader ? "max-w-[1440px]" : "max-w-6xl"
+          ]}
         >
-          <a href="/" class="flex items-center gap-3">
+          <a href="/" class="flex items-center gap-3 md:justify-self-start">
             <div>
               <Image src={Logo} alt="Logo" class="flex h-12 w-12 items-center justify-center rounded-2xl shadow-md" />
             </div>
             <div class="leading-tight">
-              <p class="text-sm font-semibold tracking-wide text-slate-900">
+              <p class:list={["overlay-brand text-sm font-semibold tracking-wide", isOverlayHeader ? "text-[#2b1309]" : "text-slate-900"]}>
                 DETOXNatural
               </p>
-              <p class="text-xs text-slate-500">
+              <p class:list={["overlay-subtitle text-xs", isOverlayHeader ? "text-[#4a220e]" : "text-slate-500"]}>
                 Sanación integral y bienestar
               </p>
             </div>
           </a>
 
-          <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+          <nav class:list={["overlay-nav hidden items-center gap-6 text-sm font-medium md:flex md:justify-self-center", isOverlayHeader ? "text-[#3d1c0b]" : "text-slate-600"]}>
             {navItems.map((item) => {
               const active = currentPath === item.href;
               return (
                 <a
                   href={item.href}
                   class:list={[
-                    "transition-colors hover:text-purple-700",
-                    active ? "text-purple-700" : ""
+                    "transition-colors",
+                    isOverlayHeader ? "hover:text-[#120704]" : "hover:text-purple-700",
+                    active ? (isOverlayHeader ? "text-[#120704]" : "text-purple-700") : ""
                   ]}
                 >
                   {item.label}
@@ -107,10 +156,15 @@ const navItems = [
             })}
           </nav>
 
-          <div class="hidden md:block">
+          <div class="hidden md:block md:justify-self-end">
             <a
               href="tel:+529611448411"
-              class="rounded-full bg-purple-700 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-purple-300/60 transition hover:bg-purple-800"
+              class:list={[
+                "overlay-cta rounded-full px-4 py-2 text-sm font-semibold shadow-md transition",
+                isOverlayHeader
+                  ? "bg-[#edb566] text-[#2b1309] shadow-[#120805]/30 hover:bg-[#f4c681]"
+                  : "bg-purple-700 text-white shadow-purple-300/60 hover:bg-purple-800"
+              ]}
             >
               Agenda tu Consulta
             </a>
@@ -119,7 +173,12 @@ const navItems = [
           <div class="md:hidden">
             <details class="relative">
               <summary
-                class="flex cursor-pointer items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm"
+                class:list={[
+                  "overlay-menu-trigger flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium shadow-sm",
+                  isOverlayHeader
+                    ? "border border-[#6b3518]/25 bg-white/35 text-[#2b1309] backdrop-blur"
+                    : "border border-slate-200 bg-white text-slate-700"
+                ]}
               >
                 <span>Menú</span>
                 <span aria-hidden="true">▾</span>
@@ -154,6 +213,24 @@ const navItems = [
           </div>
         </div>
       </header>
+
+      {isOverlayHeader && (
+        <script is:inline>
+          {`
+            const overlayHeader = document.querySelector('[data-overlay-header="true"]');
+            const overlayHero = document.querySelector('[data-hero-surface]');
+            const updateOverlayHeader = () => {
+              if (!overlayHeader) return;
+              overlayHeader.dataset.scrolled = String(window.scrollY > 20);
+              const heroBottom = overlayHero?.getBoundingClientRect().bottom ?? 0;
+              overlayHeader.dataset.surface = heroBottom > overlayHeader.offsetHeight + 24 ? 'dark' : 'light';
+            };
+            updateOverlayHeader();
+            window.addEventListener('scroll', updateOverlayHeader, { passive: true });
+            window.addEventListener('resize', updateOverlayHeader);
+          `}
+        </script>
+      )}
 
       <main class="flex-1">
         <slot />
