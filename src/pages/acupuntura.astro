@@ -19,14 +19,14 @@ import imageAcup from "../images/imageFive.png";
     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#140704]/60 via-transparent to-[#140704]/25"></div>
 
     <div class="mx-auto w-full max-w-6xl px-4 pt-32 sm:px-6 sm:pt-32 lg:flex lg:min-h-screen lg:max-w-[1440px] lg:items-center lg:px-8 lg:pt-0">
-      <div class="max-w-xl lg:max-w-2xl">
+      <div class="max-w-xl lg:max-w-2xl" data-hero-copy>
         <p class="text-base font-semibold uppercase tracking-[0.18em] text-[#f3c68e] sm:text-lg sm:tracking-[0.24em] lg:text-xl">
           Medicina Tradicional China
         </p>
         <h1 class="mt-5 text-7xl font-semibold leading-none tracking-tight text-white sm:text-8xl lg:text-[clamp(5.5rem,7vw,8rem)]">
           Acupuntura
         </h1>
-        <div class="mt-12 hidden flex-col gap-3 lg:flex lg:flex-row lg:gap-4">
+        <div class="mt-12 hidden flex-col gap-3 lg:flex lg:flex-row lg:gap-4" data-hero-actions>
           <a
             href="#incluye"
             class="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15 lg:px-9 lg:py-4 lg:text-lg"
@@ -43,7 +43,7 @@ import imageAcup from "../images/imageFive.png";
       </div>
     </div>
 
-    <div class="absolute inset-x-0 bottom-12 z-10 sm:bottom-16 lg:hidden">
+    <div class="absolute inset-x-0 bottom-12 z-10 sm:bottom-16 lg:hidden" data-hero-actions>
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:max-w-[1440px] lg:px-8">
         <div class="flex max-w-xl flex-col gap-3 sm:flex-row">
           <a
@@ -63,23 +63,16 @@ import imageAcup from "../images/imageFive.png";
     </div>
   </section>
 
+  <div class="acupuncture-content">
   <section id="incluye" class="bg-[#fff7ee] py-16 sm:py-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center" data-reveal-pair>
         <div>
           <h2 class="text-2xl font-bold tracking-tight text-[#351609] sm:text-3xl">
-            Descubriendo la Acupuntura: Sanación Holística y Equilibrio Emocional
+            Acupuntura para tu bienestar
           </h2>
           <p class="mt-4 text-base text-[#6b3518]">
-            La acupuntura, una joya de la Medicina Tradicional China, se enfoca
-            en restaurar el flujo armonioso de la energía vital, o “Qi”, en tu
-            cuerpo. Mediante la estimulación de puntos específicos, ayudamos a
-            liberar bloqueos y activar la capacidad natural de sanación.
-          </p>
-          <p class="mt-3 text-base text-[#6b3518]">
-            En DETOXNatural integramos la acupuntura con un enfoque moderno que
-            aborda tanto el bienestar físico como el equilibrio emocional, para
-            ayudarte a vivir con más calma, claridad y vitalidad.
+            Una terapia personalizada que utiliza puntos específicos para acompañar tu equilibrio físico y emocional.
           </p>
         </div>
 
@@ -96,23 +89,22 @@ import imageAcup from "../images/imageFive.png";
 
   <section id="beneficios" class="bg-[#f1ddc9] py-16 sm:py-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
+      <div class="text-center" data-reveal-header>
         <h2 class="text-2xl font-bold tracking-tight text-[#351609] sm:text-3xl">
           Beneficios Transformadores de la Acupuntura
         </h2>
         <p class="mt-4 text-base text-[#6b3518]">
-          Una terapia suave y profundamente efectiva para tu salud integral.
+          Un apoyo integral para sentirte mejor día a día.
         </p>
       </div>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="mt-10 grid gap-6 md:grid-cols-3" data-reveal-cards>
         <div class="rounded-2xl border border-[#e4c19d] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
           <h3 class="text-sm font-semibold text-[#351609]">
             Alivio del Dolor Crónico
           </h3>
           <p class="mt-2 text-[#6b3518]">
-            Reduce dolores musculares, articulares y de cabeza mejorando tu calidad
-            de vida sin depender de fármacos.
+            Apoyo para molestias musculares, articulares y de cabeza.
           </p>
         </div>
         <div class="rounded-2xl border border-[#e4c19d] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
@@ -120,8 +112,7 @@ import imageAcup from "../images/imageFive.png";
             Reducción del Estrés y Ansiedad
           </h3>
           <p class="mt-2 text-[#6b3518]">
-            Promueve calma mental y equilibrio emocional, mejorando la calidad del
-            sueño y tu manejo del estrés.
+            Favorece la calma, el descanso y el manejo del estrés.
           </p>
         </div>
         <div class="rounded-2xl border border-[#e4c19d] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
@@ -129,8 +120,7 @@ import imageAcup from "../images/imageFive.png";
             Mejora Digestiva
           </h3>
           <p class="mt-2 text-[#6b3518]">
-            Optimiza la función gastrointestinal, aliviando síntomas de hinchazón,
-            pesadez e incomodidad abdominal.
+            Acompaña el bienestar digestivo y el confort abdominal.
           </p>
         </div>
         <div class="rounded-2xl border border-[#e4c19d] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
@@ -138,8 +128,7 @@ import imageAcup from "../images/imageFive.png";
             Equilibrio Hormonal
           </h3>
           <p class="mt-2 text-[#6b3518]">
-            Apoya la regulación hormonal en casos de menstruación irregular,
-            menopausia y fertilidad.
+            Acompañamiento para procesos de equilibrio hormonal.
           </p>
         </div>
         <div class="rounded-2xl border border-[#e4c19d] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
@@ -147,8 +136,7 @@ import imageAcup from "../images/imageFive.png";
             Fortalecimiento Inmune
           </h3>
           <p class="mt-2 text-[#6b3518]">
-            Estimula las defensas naturales del cuerpo, ayudando a prevenir
-            enfermedades recurrentes.
+            Apoya las defensas naturales de tu organismo.
           </p>
         </div>
         <div class="rounded-2xl border border-[#e4c19d] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
@@ -156,19 +144,19 @@ import imageAcup from "../images/imageFive.png";
             Claridad Mental y Energía
           </h3>
           <p class="mt-2 text-[#6b3518]">
-            Aumenta la concentración, la vitalidad y el enfoque para tu día a día.
+            Favorece la calma, la energía y la concentración.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#fff7ee] py-16 sm:py-20">
+  <section id="sesiones" class="bg-[#fff7ee] py-16 sm:py-20">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-bold tracking-tight text-[#351609] sm:text-3xl">
-        Tu Experiencia en una Sesión de Acupuntura
+      <h2 class="text-center text-2xl font-bold tracking-tight text-[#351609] sm:text-3xl" data-reveal-header>
+        Tu sesión, paso a paso
       </h2>
-      <div class="mt-8 space-y-4">
+      <div class="mt-8 space-y-4" data-reveal-cards>
         <details class="group rounded-2xl border border-[#e1bc96] bg-[#f6e4d1] p-4 text-[#351609]">
           <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
             Preparación y Expectativas
@@ -179,10 +167,7 @@ import imageAcup from "../images/imageFive.png";
             >
           </summary>
           <p class="mt-3 text-sm text-[#6b3518]">
-            En tu primera sesión realizamos una consulta detallada sobre tu
-            historial y objetivos. Te recomendamos usar ropa cómoda que permita
-            el acceso a brazos y piernas y llegar unos minutos antes para comenzar
-            la sesión con calma.
+            Hablamos de tu historial y objetivos. Usa ropa cómoda y llega con unos minutos de anticipación.
           </p>
         </details>
         <details class="group rounded-2xl border border-[#e1bc96] bg-[#f6e4d1] p-4 text-[#351609]">
@@ -195,9 +180,7 @@ import imageAcup from "../images/imageFive.png";
             >
           </summary>
           <p class="mt-3 text-sm text-[#6b3518]">
-            Utilizamos agujas muy finas y estériles colocadas en puntos específicos
-            del cuerpo. Muchas personas experimentan una sensación de profunda
-            relajación, calor o ligero cosquilleo en las zonas tratadas.
+            Aplicamos agujas finas y estériles en puntos seleccionados para tu sesión.
           </p>
         </details>
         <details class="group rounded-2xl border border-[#e1bc96] bg-[#f6e4d1] p-4 text-[#351609]">
@@ -210,41 +193,36 @@ import imageAcup from "../images/imageFive.png";
             >
           </summary>
           <p class="mt-3 text-sm text-[#6b3518]">
-            Después de la sesión puedes sentir alivio de síntomas, calma mental
-            y sueño más reparador. Recomendamos hidratarte bien, evitar esfuerzos
-            extremos y observar cómo responde tu cuerpo en los días siguientes.
+            Hidrátate, sigue las recomendaciones y observa cómo responde tu cuerpo.
           </p>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#e8cfb3] py-16 sm:py-20">
+  <section id="testimonios" class="bg-[#e8cfb3] py-16 sm:py-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-bold tracking-tight text-[#351609] sm:text-3xl">
+      <h2 class="text-center text-2xl font-bold tracking-tight text-[#351609] sm:text-3xl" data-reveal-header>
         Testimonios que Inspiran
       </h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
+      <div class="mt-8 grid gap-6 md:grid-cols-3" data-reveal-cards>
         <article class="rounded-2xl border border-[#dfba93] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
           <p class="italic text-[#4a220e]">
-            “Desde que comencé con las sesiones de acupuntura mis dolores de
-            espalda han disminuido notablemente. ¡Realmente transformador!”
+            “Mis molestias de espalda disminuyeron y me siento con más bienestar.”
           </p>
           <p class="mt-4 font-semibold text-[#351609]">Ana M.</p>
           <p class="text-xs text-[#8b4c25]">Paciente satisfecha</p>
         </article>
         <article class="rounded-2xl border border-[#dfba93] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
           <p class="italic text-[#4a220e]">
-            “La acupuntura me ayudó a manejar mi ansiedad de una forma que nunca
-            imaginé. Me siento más tranquilo y en control.”
+            “Me siento más tranquilo y con mayor equilibrio en mi día a día.”
           </p>
           <p class="mt-4 font-semibold text-[#351609]">Pablo R.</p>
           <p class="text-xs text-[#8b4c25]">Paciente satisfecho</p>
         </article>
         <article class="rounded-2xl border border-[#dfba93] bg-[#fffaf4] p-6 text-sm shadow-sm shadow-[#6b3215]/10">
           <p class="italic text-[#4a220e]">
-            “Las sesiones son un oasis de paz. He notado una mejora increíble
-            en mi sueño y energía diaria.”
+            “Las sesiones se convirtieron en un espacio de calma para mí.”
           </p>
           <p class="mt-4 font-semibold text-[#351609]">Elena G.</p>
           <p class="text-xs text-[#8b4c25]">Paciente satisfecha</p>
@@ -253,23 +231,151 @@ import imageAcup from "../images/imageFive.png";
     </div>
   </section>
 
-  <section class="bg-[#2b1309] py-16 sm:py-20">
-    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+  <section id="cta-acupuntura" class="bg-[#2b1309] py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8" data-reveal-header>
       <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-        ¿Listo para un Cambio de Vida?
+        ¿Listo para empezar?
       </h2>
       <p class="mt-4 text-base text-[#f4d4ad] sm:text-lg">
-        Agenda tu consulta hoy y comienza tu camino hacia una salud integral y un
-        bienestar duradero con el apoyo de la acupuntura.
+        Agenda tu consulta y conoce un plan pensado para ti.
       </p>
       <div class="mt-6 flex justify-center">
         <a
           href="/contacto#agenda"
           class="rounded-full bg-[#d78a3e] px-8 py-3 text-sm font-semibold text-white shadow-md shadow-black/25 transition hover:bg-[#e49b52]"
         >
-          Agendar Consulta Gratuita
+          Agenda tu consulta
         </a>
       </div>
     </div>
   </section>
+  </div>
+
+  <style>
+    .acupuncture-content {
+      background: #180b06;
+    }
+
+    #incluye {
+      background:
+        radial-gradient(circle at 85% 15%, rgb(192 119 46 / 0.18), transparent 32%),
+        linear-gradient(135deg, #211008 0%, #32190c 100%);
+    }
+
+    #beneficios {
+      background:
+        radial-gradient(circle at 12% 0%, rgb(205 143 67 / 0.16), transparent 28%),
+        linear-gradient(135deg, #351b0e 0%, #241108 100%);
+    }
+
+    #sesiones {
+      background: linear-gradient(135deg, #1b0d07 0%, #2a150b 100%);
+    }
+
+    #testimonios {
+      background:
+        radial-gradient(circle at 88% 80%, rgb(191 119 45 / 0.16), transparent 32%),
+        linear-gradient(135deg, #3b1f10 0%, #251108 100%);
+    }
+
+    #cta-acupuntura {
+      background:
+        radial-gradient(circle at 50% 0%, rgb(173 103 38 / 0.22), transparent 44%),
+        #170a05;
+    }
+
+    .acupuncture-content h2 {
+      color: #fff;
+    }
+
+    .acupuncture-content h3,
+    .acupuncture-content .font-semibold {
+      color: #f5c983;
+    }
+
+    .acupuncture-content p {
+      color: #d9bd96;
+    }
+
+    #beneficios .grid > div,
+    #testimonios article {
+      border-color: rgb(205 151 84 / 0.42);
+      background: linear-gradient(145deg, rgb(74 38 18 / 0.94), rgb(39 18 8 / 0.96));
+      box-shadow: 0 16px 38px rgb(9 3 1 / 0.3), inset 0 1px 0 rgb(255 222 170 / 0.08);
+    }
+
+    #beneficios .grid > div p,
+    #testimonios article p {
+      color: #d9bd96;
+    }
+
+    #sesiones details {
+      border-color: rgb(202 143 73 / 0.42);
+      background: linear-gradient(135deg, rgb(72 35 16 / 0.92), rgb(42 20 10 / 0.96));
+      color: #f5c983;
+      box-shadow: inset 0 1px 0 rgb(255 222 170 / 0.07);
+    }
+
+    #sesiones details p {
+      color: #d9bd96;
+    }
+
+    #sesiones details span {
+      color: #e7ae63;
+    }
+
+    #cta-acupuntura p {
+      color: #d9bd96;
+    }
+  </style>
+
+  <script>
+    import { animate, stagger } from "animejs";
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reduceMotion) {
+      animate("[data-hero-copy]", {
+        opacity: { from: 0 },
+        y: { from: 32 },
+        duration: 850,
+        ease: "outExpo"
+      });
+
+      animate("[data-hero-actions]", {
+        opacity: { from: 0 },
+        y: { from: 20 },
+        delay: 180,
+        duration: 700,
+        ease: "outExpo"
+      });
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const target = entry.target;
+            const cards = target.matches("[data-reveal-cards]") ? Array.from(target.children) : [target];
+
+            animate(cards, {
+              opacity: { from: 0 },
+              y: { from: 28 },
+              scale: { from: 0.98 },
+              delay: cards.length > 1 ? stagger(80) : 0,
+              duration: 700,
+              ease: "outExpo"
+            });
+
+            revealObserver.unobserve(target);
+          });
+        },
+        { threshold: 0.16, rootMargin: "0px 0px -8%" }
+      );
+
+      document
+        .querySelectorAll("[data-reveal-pair] > *, [data-reveal-header], [data-reveal-cards]")
+        .forEach((element) => revealObserver.observe(element));
+    }
+  </script>
 </MainLayout>
