@@ -144,14 +144,31 @@ import MainLayout from "../layouts/MainLayout.astro";
               />
             </div>
             <div>
-              <label for="servicio" class="mb-1.5 block text-sm font-medium text-[#3f342e]">¿Qué servicio te interesa?</label>
-              <select id="servicio" name="servicio" required class="contact-input contact-select">
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option value="Acupuntura">Acupuntura</option>
-                <option value="Nutrición">Nutrición</option>
-                <option value="Medicina natural">Medicina natural</option>
-                <option value="Orientación sobre los servicios">Aún no estoy seguro</option>
-              </select>
+              <label for="servicio-trigger" class="mb-1.5 block text-sm font-medium text-[#3f342e]">¿Qué servicio te interesa?</label>
+              <div class="contact-picker" data-service-picker>
+                <input id="servicio" name="servicio" type="hidden" value="" />
+                <button
+                  id="servicio-trigger"
+                  type="button"
+                  class="contact-input contact-picker-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-controls="service-options"
+                  aria-describedby="service-error"
+                >
+                  <span data-service-label>Selecciona una opción</span>
+                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" class="contact-picker-chevron">
+                    <path d="m5 7.5 5 5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div id="service-options" class="contact-picker-options" role="listbox" aria-label="Servicios de DETOXNatural" hidden>
+                  <button type="button" class="contact-picker-option" role="option" aria-selected="false" data-value="Acupuntura">Acupuntura</button>
+                  <button type="button" class="contact-picker-option" role="option" aria-selected="false" data-value="Nutrición">Nutrición</button>
+                  <button type="button" class="contact-picker-option" role="option" aria-selected="false" data-value="Medicina natural">Medicina natural</button>
+                  <button type="button" class="contact-picker-option" role="option" aria-selected="false" data-value="Orientación sobre los servicios">Aún no estoy seguro</button>
+                </div>
+              </div>
+              <p id="service-error" class="contact-picker-error" role="alert" hidden>Selecciona el servicio que te interesa para continuar.</p>
             </div>
             <div>
               <label for="consulta" class="mb-1.5 block text-sm font-medium text-[#3f342e]">¿Qué te gustaría consultar? <span class="font-normal text-[#81766e]">(opcional)</span></label>
@@ -246,22 +263,171 @@ import MainLayout from "../layouts/MainLayout.astro";
     box-shadow: 0 0 0 3px rgb(128 65 132 / .13);
   }
 
-  .contact-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='m5 7.5 5 5 5-5' stroke='%23804184' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right .9rem center;
-    background-size: 1rem;
-    padding-right: 2.8rem;
+  .contact-picker {
+    position: relative;
+  }
+
+  .contact-picker-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .contact-picker-trigger[aria-expanded="true"] {
+    border-color: #804184;
+    box-shadow: 0 0 0 3px rgb(128 65 132 / .13);
+  }
+
+  .contact-picker-chevron {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    color: #804184;
+    transition: transform .18s ease;
+  }
+
+  .contact-picker-trigger[aria-expanded="true"] .contact-picker-chevron {
+    transform: rotate(180deg);
+  }
+
+  .contact-picker-options {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + .45rem);
+    left: 0;
+    display: grid;
+    width: 100%;
+    max-height: 15rem;
+    gap: .2rem;
+    overflow-y: auto;
+    border: 1px solid #e5d8e4;
+    border-radius: 1rem;
+    background: #fffdfa;
+    padding: .4rem;
+    box-shadow: 0 16px 36px rgb(43 33 24 / .16);
+  }
+
+  .contact-picker-options[hidden] {
+    display: none;
+  }
+
+  .contact-picker-option {
+    min-height: 2.7rem;
+    border: 0;
+    border-radius: .7rem;
+    background: transparent;
+    padding: .65rem .8rem;
+    color: #3f342e;
+    cursor: pointer;
+    font: inherit;
+    font-size: .9rem;
+    text-align: left;
+    transition: background-color .15s ease, color .15s ease;
+  }
+
+  .contact-picker-option:hover,
+  .contact-picker-option:focus-visible,
+  .contact-picker-option[aria-selected="true"] {
+    background: #f5e9f7;
+    color: #5f255f;
+    outline: none;
+  }
+
+  .contact-picker-error {
+    margin: .4rem .15rem 0;
+    color: #8b2d3d;
+    font-size: .78rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .contact-input { transition: none; }
+    .contact-input, .contact-picker-chevron, .contact-picker-option { transition: none; }
   }
 </style>
 
 <script>
   const contactForm = document.querySelector<HTMLFormElement>("#contact-whatsapp-form");
+  const servicePicker = document.querySelector<HTMLElement>("[data-service-picker]");
+  const serviceTrigger = document.querySelector<HTMLButtonElement>("#servicio-trigger");
+  const serviceOptions = document.querySelector<HTMLDivElement>("#service-options");
+  const serviceValue = document.querySelector<HTMLInputElement>("#servicio");
+  const serviceLabel = document.querySelector<HTMLElement>("[data-service-label]");
+  const serviceError = document.querySelector<HTMLElement>("#service-error");
+  const optionButtons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".contact-picker-option")
+  );
+
+  const closeServiceOptions = (restoreFocus = false) => {
+    if (!serviceTrigger || !serviceOptions) return;
+    serviceOptions.hidden = true;
+    serviceTrigger.setAttribute("aria-expanded", "false");
+    if (restoreFocus) serviceTrigger.focus();
+  };
+
+  const openServiceOptions = (focusFirst = false) => {
+    if (!serviceTrigger || !serviceOptions) return;
+    serviceOptions.hidden = false;
+    serviceTrigger.setAttribute("aria-expanded", "true");
+    if (focusFirst) optionButtons[0]?.focus();
+  };
+
+  serviceTrigger?.addEventListener("click", () => {
+    if (serviceOptions?.hidden) openServiceOptions();
+    else closeServiceOptions();
+  });
+
+  serviceTrigger?.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openServiceOptions(true);
+    }
+  });
+
+  servicePicker?.addEventListener("focusout", (event) => {
+    if (servicePicker && event.relatedTarget instanceof Node && servicePicker.contains(event.relatedTarget)) return;
+    closeServiceOptions();
+  });
+
+  optionButtons.forEach((option, index) => {
+    option.addEventListener("click", () => {
+      const selectedValue = option.dataset.value ?? "";
+      if (serviceValue) serviceValue.value = selectedValue;
+      if (serviceLabel) serviceLabel.textContent = option.textContent?.trim() ?? "";
+      optionButtons.forEach((button) => {
+        button.setAttribute("aria-selected", String(button === option));
+      });
+      serviceTrigger?.removeAttribute("aria-invalid");
+      if (serviceError) serviceError.hidden = true;
+      closeServiceOptions(true);
+    });
+
+    option.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeServiceOptions(true);
+      } else if (event.key === "ArrowDown") {
+        event.preventDefault();
+        optionButtons[(index + 1) % optionButtons.length]?.focus();
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        optionButtons[(index - 1 + optionButtons.length) % optionButtons.length]?.focus();
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        optionButtons[0]?.focus();
+      } else if (event.key === "End") {
+        event.preventDefault();
+        optionButtons[optionButtons.length - 1]?.focus();
+      }
+    });
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (servicePicker && event.target instanceof Node && !servicePicker.contains(event.target)) {
+      closeServiceOptions();
+    }
+  });
 
   contactForm?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -273,6 +439,14 @@ import MainLayout from "../layouts/MainLayout.astro";
     const name = String(formData.get("nombre") ?? "").trim();
     const service = String(formData.get("servicio") ?? "").trim();
     const question = String(formData.get("consulta") ?? "").trim();
+
+    if (!service) {
+      serviceTrigger?.setAttribute("aria-invalid", "true");
+      if (serviceError) serviceError.hidden = false;
+      serviceTrigger?.focus();
+      return;
+    }
+
     const message = [
       "Hola, me gustaría agendar una consulta.",
       `Mi nombre es ${name}.`,

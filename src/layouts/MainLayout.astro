@@ -16,6 +16,7 @@ const isOverlayHeader = headerVariant === "overlay";
 
 const site = Astro.site;
 const path = currentPath ?? "/";
+const showBrandIntro = path === "/";
 const canonicalUrl = site ? new URL(path, site).toString() : undefined;
 const defaultDescription =
   "DETOXNatural en Tuxtla Gutiérrez, Chiapas: programas de nutrición, acupuntura y medicina natural para tu salud integral.";
@@ -71,13 +72,14 @@ const navItems = [
     <meta name="twitter:image" content={Logo.src} />
     <script is:inline>
       {`
-        try {
-          if (sessionStorage.getItem('detoxnatural-intro-seen')) {
-            document.documentElement.classList.add('detoxnatural-intro-seen');
-          } else {
-            sessionStorage.setItem('detoxnatural-intro-seen', '1');
-          }
-        } catch {}
+        if (window.location.pathname === '/') {
+          try {
+            if (!localStorage.getItem('detoxnatural-intro-seen')) {
+              localStorage.setItem('detoxnatural-intro-seen', '1');
+              document.documentElement.classList.add('detoxnatural-intro-first-visit');
+            }
+          } catch {}
+        }
       `}
     </script>
     <style is:global>
@@ -85,7 +87,7 @@ const navItems = [
         position: fixed;
         inset: 0;
         z-index: 100;
-        display: grid;
+        display: none;
         place-items: center;
         overflow: hidden;
         color: #fff;
@@ -93,8 +95,8 @@ const navItems = [
         animation: brand-intro-exit 480ms cubic-bezier(.65, 0, .35, 1) 1.24s forwards;
       }
 
-      html.detoxnatural-intro-seen .brand-intro {
-        display: none;
+      html.detoxnatural-intro-first-visit .brand-intro {
+        display: grid;
       }
 
       .brand-intro__content {
@@ -196,13 +198,15 @@ const navItems = [
     </script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
-    <div class="brand-intro" aria-hidden="true">
-      <div class="brand-intro__content">
-        <Image src={Logo} alt="" class="brand-intro__logo" loading="eager" />
-        <p class="brand-intro__name">DETOXNatural</p>
-        <p class="brand-intro__tagline">Quítale peso a tu vida</p>
+    {showBrandIntro && (
+      <div class="brand-intro" aria-hidden="true">
+        <div class="brand-intro__content">
+          <Image src={Logo} alt="" class="brand-intro__logo" loading="eager" />
+          <p class="brand-intro__name">DETOXNatural</p>
+          <p class="brand-intro__tagline">Quítale peso a tu vida</p>
+        </div>
       </div>
-    </div>
+    )}
     <div class="flex min-h-screen flex-col">
       <header
         data-overlay-header={isOverlayHeader ? "true" : undefined}
